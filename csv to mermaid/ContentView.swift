@@ -42,34 +42,11 @@ struct ContentView: View {
         }
         if colsArr[0].count < 3  {
             mermaid = "Invalid CSV input, try again"
-            print("empty")
             return
         }
         
-            
-        print(rowsArr)
-        print(colsArr)
         clearMermaid()
         var parts = makeParts(cols: Array(colsArr[1...]))
-        
-        for part in parts {
-            print("-----------------------------------")
-            print("part: \(part.part)")
-            print("partID: \(part.partID)")
-            print("partType: \(part.partType)")
-            print("description: \(part.description.id), \(part.description.actions), \(part.description.parts)")
-            print("leadsToStr: \(part.leadsToStr)")
-            print("leadsTo:")
-            for l in part.leadsTo {
-                print("~~~~~~~~~~~~~~~~~~~~~~~~")
-
-                print(l.part)
-                print(l.partID)
-                print(l.partType)
-                print("~~~~~~~~~~~~~~~~~~~~~~~~")
-            }
-            print("-----------------------------------")
-        }
         
         // create the mermaid output, it's just a long string
         mermaid = FLOWCHART_THEME + partIDs + toolIDs + subgraphs + arrows + classes
